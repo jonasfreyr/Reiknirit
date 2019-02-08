@@ -38,4 +38,4 @@ Dæmi um O(log n) er binary search.
 ```
 
 ### 4. (3/15) Útfærðu fall sem býr til alla mögulega strengi af lengd n úr lágstöfum enska stafrófsins 
-## [KÓÐI](https://github.com/larussverris/reiknirit-larus/blob/master/skil3/main.py)
+
