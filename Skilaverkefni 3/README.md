@@ -3,6 +3,6 @@
 
 3. (3/15) Útskýrðu stuttlega tímaflækjurnar hér fyrir neðan. Nefndu dæmi um reiknirit sem hafa
 eftirfarandi tímaflækjur.
-a. O(n)
-b. O(n^2)
-c. O(log(n))
+*a. O(n)
+*b. O(n^2)
+*c. O(log(n))
