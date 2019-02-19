@@ -16,7 +16,10 @@ def insert_place(t, l):
     return l
 
 
-def binary_search(l, t, a, b):
+def binary_search(l, t, a=0, b=None):
+    if b == None:
+        b = len(l)
+
     if (a <= b):
         mid = int((a + b) / 2)
 
@@ -101,7 +104,7 @@ l = [10, 14, 19, 26, 27, 31, 33, 35, 42 ,44]
 print(l)
 print("Hvaða tölu langar þér að leita? - Binary Search")
 i = int(input(">> "))
-print(leita(i, l))
+print(binary_search(l, i))
 
 l = [2,3,3,5,6,7,9,10]
 print(l)
