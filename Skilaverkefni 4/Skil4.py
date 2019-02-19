@@ -1,5 +1,38 @@
 
 # Skilaverkefni 4
+def leita(n, l):
+    for a in l:
+        if a == n:
+            return l.index(n)
+    return -1
+
+def insert_place(t, l):
+    for index, num in reversed(list(enumerate(l))):
+        if t >= num:
+            l.insert(index+1, t)
+            return l
+
+    l.insert(0, t)
+    return l
+
+
+def binary_search(l, t, a, b):
+    if (a <= b):
+        mid = int((a + b) / 2)
+
+        if t == l[mid]:
+            return mid
+
+        if t > l[mid]:
+            a = mid
+
+        if t < l[mid]:
+            b = mid
+
+        return binary_search(l, t, a, b)
+
+    return -1
+
 class Node:
     def __init__ (self,v):
         self.value = v
@@ -54,10 +87,35 @@ class Tree:
         else:
             self.root = Node(d)
             return True
+
+
+
+
+l = [8,5,3,7,1,9,2,6]
+print(l)
+print("Hvaða tölu langar þér að leita? - Linear Search")
+i = int(input(">> "))
+print(leita(i, l))
+
+l = [10, 14, 19, 26, 27, 31, 33, 35, 42 ,44]
+print(l)
+print("Hvaða tölu langar þér að leita? - Binary Search")
+i = int(input(">> "))
+print(leita(i, l))
+
+l = [2,3,3,5,6,7,9,10]
+print(l)
+print("Hvaða tölu langar þér að bæta við?")
+t = int(input(">> "))
+l = insert_place(t,l)
+print(l)
+
 t = Tree()
 t.insert(6)
 t.insert(2)
 t.insert(3)
 t.insert(7)
 
-print(t.search(8))
+print("Hvaða nótu langar þér að leita af?")
+tala = int(input(">> "))
+print(t.search(tala))
