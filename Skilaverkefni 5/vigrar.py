@@ -30,7 +30,11 @@ class Vigur:
 
     # Fall sem skilar stefnuhorni
     def stefnuhorn(self):
-        return self.horn(Vigur(1, 0))
+
+        if self.y < 0:
+            return -self.horn(Vigur(1, 0))
+        else:
+            return self.horn(Vigur(1, 0))
 
     # Fall sem tekur vigur sem parameter og skilar horni milli vigra
     def horn(self, v):
@@ -43,7 +47,6 @@ class Vigur:
 
 
 
-
 # Keyrsluforrit
 v1 = Vigur(1, 3)
 v1.prenta()
@@ -53,7 +56,7 @@ vþ = v1.þvervigur()
 print("Þvervigur: ", end=" ")
 vþ.prenta()
 print("Stefnuhorn: ", v1.stefnuhorn())
-v2 = Vigur(-3,1)
+v2 = Vigur(-3, 1)
 print("Horn milli vigra: ", v2.horn(v1))
 v3 = v1.summa(v2)
 print("Summa: ", end=" ")
