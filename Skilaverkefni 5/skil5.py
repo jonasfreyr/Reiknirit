@@ -93,11 +93,17 @@ class DLL: # DLL = Dobule Linked List
     def delete(self, d):
         if self.head is None:
             return -1
+
+        elif self.head.data == d and self.head.nxt is None:
+            self.head = None
+            return True
+
         elif self.head.data == d:
             self.head = self.head.nxt
             self.head.prv.nxt = None
             self.head.prv = None
             return True
+
         else:
             return self.head.delete(d)
 
