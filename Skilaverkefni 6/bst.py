@@ -32,17 +32,41 @@ class Tree:
             self.root = Node(d)
             return True
 
-    def preOrderPrint():
-        pass
+    def preOrderPrint(self, root):
+        # Þinn kóði hér. Endurkvæmt fall sem fer yfir í Node klasa
+
+        if root:
+            print(root.value, end=" ")
+
+            self.preOrderPrint(root.left)
+
+            self.preOrderPrint(root.right)
+
+
+    def postOrderPrint(self, root):
+        # Þinn kóði hér. Endurkvæmt fall sem fer yfir í Node klasa
+        if root:
+            self.preOrderPrint(root.left)
+
+            self.preOrderPrint(root.right)
+
+            print(root.value, end=" ")
+
+    def delete(self, n):
         # Þinn kóði hér. Endurkvæmt fall sem fer yfir í Node klasa
         pass
-    def postOrderPrint():
-        # Þinn kóði hér. Endurkvæmt fall sem fer yfir í Node klasa
+    def deleteTree(self):
+        del self
         pass
-    def delete(n):
-        # Þinn kóði hér. Endurkvæmt fall sem fer yfir í Node klasa
-        pass
-    def deleteTree():
-        # Þinn kóði hér
-        pass
+
 t = Tree()
+
+t.insert(4)
+t.insert(3)
+t.insert(2)
+t.insert(5)
+t.insert(6)
+
+t.preOrderPrint(t.root)
+print(" ")
+t.postOrderPrint(t.root)
