@@ -46,27 +46,85 @@ class Tree:
     def postOrderPrint(self, root):
         # Þinn kóði hér. Endurkvæmt fall sem fer yfir í Node klasa
         if root:
-            self.preOrderPrint(root.left)
+            self.postOrderPrint(root.left)
 
-            self.preOrderPrint(root.right)
+            self.postOrderPrint(root.right)
 
             print(root.value, end=" ")
 
-    def delete(self, n):
-        # Þinn kóði hér. Endurkvæmt fall sem fer yfir í Node klasa
-        pass
+    def minValueNode(self, node):
+        current = node
+
+        while current.left is not None:
+            current = current.left
+
+        return current
+
+    def delete(self, root, n, prev=0):
+        if prev == 0:
+            prev = root
+
+        if root is None:
+            return False
+
+        if n < root.value:
+            return self.delete(root.left, n, root)
+
+        elif n > root.value:
+            return self.delete(root.right, n, root)
+
+        else:
+            if root.left is None:
+                if prev.left == root:
+                    prev.left = root.right
+
+                elif prev.right == root:
+                    prev.right = root.right
+
+                return True
+
+            elif root.right is None:
+                if prev.left == root:
+                    prev.left = root.left
+
+                elif prev.right == root:
+                    prev.right = root.left
+
+                return True
+
+            temp = self.minValueNode(root.right)
+
+            root.value = temp.value
+
+            self.delete(root.right, temp.value)
+
+        return True
+
+
     def deleteTree(self):
-        del self
-        pass
+        self.root = None
 
 t = Tree()
 
-t.insert(4)
-t.insert(3)
-t.insert(2)
-t.insert(5)
-t.insert(6)
+t.insert(50)
+t.insert(30)
+t.insert(20)
+t.insert(40)
+t.insert(70)
+t.insert(60)
+t.insert(80)
 
+
+print("Pre-Order")
 t.preOrderPrint(t.root)
 print(" ")
+print("Post-Order")
 t.postOrderPrint(t.root)
+print(" ")
+print("Pre-Order eftir að hafa delete-að 50")
+print(t.delete(t.root, 50))
+t.preOrderPrint(t.root)
+print(" ")
+print("Reyni að delete-a 100(er ekki til)")
+print(t.delete(t.root, 100))
+t.preOrderPrint(t.root)
