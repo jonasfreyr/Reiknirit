@@ -96,7 +96,7 @@ class Tree:
 
             root.value = temp.value
 
-            self.delete(root.right, temp.value)
+            return self.delete(root.right, temp.value)
 
         return True
 
